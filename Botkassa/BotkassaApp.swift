@@ -26,7 +26,7 @@ struct BotkassaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().preferredColorScheme(isDarkMode ? .dark : .light)
+            MainTabView().preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }
