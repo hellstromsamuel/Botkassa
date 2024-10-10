@@ -5,16 +5,15 @@
 //  Created by Samuel Hellstrøm on 09/10/2024.
 //
 
-
 import SwiftUI
 
 struct TeamView: View {
-    @StateObject var viewModel = TeamMembersViewModel()
+    @StateObject var viewModel = TeamUsersViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
-                TeamMembersView()
+                TeamUsersView()
             }.navigationTitle("Team")
         }
     }

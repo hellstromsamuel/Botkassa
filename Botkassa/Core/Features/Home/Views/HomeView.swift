@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TeamMembersView()
+                TeamUsersView()
             }
             .navigationTitle("Hi, \(viewModel.username)")
             .onAppear {

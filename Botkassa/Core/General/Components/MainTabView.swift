@@ -23,14 +23,7 @@ struct MainTabView: View {
                     Text("Team")
                 }
                 .tag(2)
-
-//            NewFeeView()
-//                .tabItem {
-//                    Image(systemName: "plus.circle")
-//                    Text("New Fee")
-//                }
-//                .tag(3)
-
+            
             TransactionsView()
                 .tabItem {
                     Image(systemName: "clock")
