@@ -7,11 +7,15 @@
 
 import Foundation
 
-class HomeViewModel: ObservableObject {
-    @Published var username: String = ""
 
+class HomeViewModel: ObservableObject {
+    @Published var user: User? = nil
+    @Published var transactions: [Transaction] = []
+    @Published var teamUsers: [User] = []
+    
     func loadUserData() {
-        // Load user data from a model or service
-        self.username = "John Doe"
+        user = MockUser.sampleUsers[0]
+        transactions = MockTransaction.sampleTransactions
+        teamUsers = MockUser.sampleUsers
     }
 }

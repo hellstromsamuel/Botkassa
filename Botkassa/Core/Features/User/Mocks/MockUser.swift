@@ -13,43 +13,49 @@ struct MockUser {
     static let sampleUsers: [User] = [
         User(
             id: "user1",
-            name: "Alice Johnson",
             email: "alice@example.com",
+            firstName: "Alice",
+            lastName: "Johnson",
             teamIds: ["team1", "team3"],
             timeAdded: dateFormatter.date(from: "2024-01-10T08:00:00Z")!
         ),
         User(
             id: "user2",
-            name: "Bob Smith",
             email: "bob@example.com",
+            firstName: "Bob",
+            lastName: "Smith",
             teamIds: ["team1", "team2"],
             timeAdded: dateFormatter.date(from: "2024-01-11T09:15:00Z")!
         ),
         User(
             id: "user3",
-            name: "Charlie Brown",
             email: "charlie@example.com",
+            firstName: "Charlie",
+            lastName: "Brown",
             teamIds: ["team1"],
             timeAdded: dateFormatter.date(from: "2024-01-12T10:30:00Z")!
         ),
         User(
             id: "user4",
-            name: "Diana Prince",
             email: "diana@example.com",
+            firstName: "Diana",
+            lastName: "Prince",
             teamIds: ["team2"],
             timeAdded: dateFormatter.date(from: "2024-01-13T11:45:00Z")!
         ),
         User(
             id: "user5",
-            name: "Ethan Hunt",
             email: "ethan@example.com",
+            firstName: "Ethan",
+            lastName: "Hunt",
             teamIds: ["team2", "team3"],
             timeAdded: dateFormatter.date(from: "2024-01-14T13:00:00Z")!
         ),
         User(
             id: "user6",
-            name: "Fiona Gallagher",
             email: "fiona@example.com",
+            firstName: "Fiona",
+            lastName: "Gallagher",
             teamIds: ["team3"],
             timeAdded: dateFormatter.date(from: "2024-01-15T14:15:00Z")!
         )

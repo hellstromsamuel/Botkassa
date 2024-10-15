@@ -10,6 +10,7 @@ import Foundation
 struct Fine: Identifiable, Codable {
     var id: String
     var amount: Double
-    var reason: String
+    var title: String
+    var description: String?
     var timeAdded: Date
 }

@@ -14,19 +14,19 @@ struct MockFine {
         Fine(
             id: "fine1",
             amount: 20.0,
-            reason: "Late to practice",
+            title: "Late to practice",
             timeAdded: dateFormatter.date(from: "2024-10-10T09:30:00Z")!
         ),
         Fine(
             id: "fine2",
             amount: 50.0,
-            reason: "Missed game",
+            title: "Missed game",
             timeAdded: dateFormatter.date(from: "2024-10-11T14:15:00Z")!
         ),
         Fine(
             id: "fine3",
             amount: 15.0,
-            reason: "Forgot equipment",
+            title: "Forgot equipment",
             timeAdded: dateFormatter.date(from: "2024-10-12T16:45:00Z")!
         )
     ]

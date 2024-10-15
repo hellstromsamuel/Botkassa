@@ -7,7 +7,25 @@
 
 import Foundation
 
-enum TransactionType: String, Codable {
+enum TransactionType: String, Codable, CaseIterable {
     case fine
     case payment
+    
+    var displayName: String {
+        switch self {
+        case .fine:
+            return "Bot"
+        case .payment:
+            return "Betaling"
+        }
+    }
+    
+    var displayNamePlural: String {
+        switch self {
+        case .fine:
+            return "Bøter"
+        case .payment:
+            return "Betalinger"
+        }
+    }
 }
