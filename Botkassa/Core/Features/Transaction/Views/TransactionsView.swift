@@ -9,22 +9,23 @@ import SwiftUI
 
 struct TransactionsView: View {
     @ObservedObject var viewModel = TransactionsViewModel()
-    
-    var sortedByDateDecending: [Transaction] {
-        TransactionsHelper.sortTransactions(
-            direction: .descending,
-            by: \.timeAdded,
-            from: viewModel.transactions)
+    @State private var searchText: String = ""
+
+    var filteredTransactions: [Transaction] {
+        if searchText.isEmpty {
+            return viewModel.sortedByDateDecending()
+        } else {
+            return viewModel.sortedByDateDecending().filter {
+                $0.description.localizedCaseInsensitiveContains(searchText)
+            }
+        }
     }
 
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Transactions")) {
-                    TransactionsListView(transactions: sortedByDateDecending)
-                }
-            }
-            .navigationTitle("History")
+            TransactionsList(transactions: filteredTransactions)
+                .searchable(text: $searchText)
+                .navigationTitle("History")
         }
         .onAppear {
             viewModel.loadTransactions()

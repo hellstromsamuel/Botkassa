@@ -14,8 +14,8 @@ class HomeViewModel: ObservableObject {
     @Published var teamUsers: [User] = []
     
     func loadUserData() {
-        user = MockUser.sampleUsers[0]
-        transactions = MockTransaction.sampleTransactions
-        teamUsers = MockUser.sampleUsers
+        user = UserMock.sampleUsers[0]
+        transactions = TransactionMock.sampleTransactions
+        teamUsers = UserMock.sampleUsers
     }
 }

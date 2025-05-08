@@ -9,8 +9,12 @@
 import Foundation
 
 class TransactionsHelper {
-    static func totalFines(from transactions: [Transaction]) -> Double {
-        let fines = transactions.filter { $0.type == .fine }
+    static func formatAmount(from amount: Double) -> String {
+        return String(format: "%.2f", amount)
+    }
+    
+    static func totalIncome(from transactions: [Transaction]) -> Double {
+        let fines = transactions.filter { $0.type == .income }
         return fines.reduce(0) { $0 + $1.amount }
     }
 
@@ -19,8 +23,8 @@ class TransactionsHelper {
         return payments.reduce(0) { $0 + $1.amount }
     }
 
-    static func outstandingAmount(from transactions: [Transaction]) -> Double {
-        return totalPayments(from: transactions)-totalFines(from: transactions)
+    static func remainingAmount(from transactions: [Transaction]) -> Double {
+        return totalIncome(from: transactions)-totalPayments(from: transactions)
     }
 
     static func filterTransactions(ofType type: TransactionType, from transactions: [Transaction]) -> [Transaction] {

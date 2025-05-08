@@ -8,24 +8,16 @@
 import Foundation
 
 enum TransactionType: String, Codable, CaseIterable {
-    case fine
+    case income
     case payment
     
     var displayName: String {
         switch self {
-        case .fine:
-            return "Bot"
+        case .income:
+            return "income"
         case .payment:
-            return "Betaling"
+            return "payment"
         }
     }
-    
-    var displayNamePlural: String {
-        switch self {
-        case .fine:
-            return "Bøter"
-        case .payment:
-            return "Betalinger"
-        }
-    }
+
 }

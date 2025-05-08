@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct MockUser {
+struct UserMock {
     static let dateFormatter = ISO8601DateFormatter()
     
     static let sampleUsers: [User] = [
         User(
             id: "user1",
             email: "alice@example.com",
-            firstName: "Alice",
-            lastName: "Johnson",
+            firstName: "Samuel",
+            lastName: "Hellstrøm",
             teamIds: ["team1", "team3"],
             timeAdded: dateFormatter.date(from: "2024-01-10T08:00:00Z")!
         ),

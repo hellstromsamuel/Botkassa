@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransactionDetailsView: View {
+struct TransactionDetails: View {
     let transaction: Transaction
 
     // Date formatter for displaying date and time
@@ -32,8 +32,8 @@ struct TransactionDetailsView: View {
                     Text("Amount")
                         .font(.headline)
                     Spacer()
-                    Text("$\(transaction.amount, specifier: "%.2f")")
-                        .foregroundColor(transaction.type == .payment ? .green : .red)
+                    Text(TransactionsHelper.formatAmount(from: transaction.amount))
+                        .foregroundColor(transaction.type == .income ? .green : .red)
                 }
 
                 HStack {
@@ -50,37 +50,12 @@ struct TransactionDetailsView: View {
                     Spacer()
                     Text(transaction.type.rawValue.capitalized)
                 }
-                
-                if let fine = transaction.fineId, !fine.isEmpty {
-                    HStack {
-                        Text("Fine ID")
-                            .font(.headline)
-                        Spacer()
-                        Text(fine)
-                    }
-                }
 
                 HStack {
                     Text("User ID")
                         .font(.headline)
                     Spacer()
                     Text(transaction.userId)
-                        .font(.body)
-                }
-                
-                HStack {
-                    Text("Season ID")
-                        .font(.headline)
-                    Spacer()
-                    Text(transaction.seasonId)
-                        .font(.body)
-                }
-                
-                HStack {
-                    Text("Team Id")
-                        .font(.headline)
-                    Spacer()
-                    Text(transaction.teamId)
                         .font(.body)
                 }
             }
@@ -92,16 +67,6 @@ struct TransactionDetailsView: View {
 
 struct TransactionDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionDetailsView(transaction: Transaction(
-            id: "transaction1",
-            type: .fine,
-            amount: 20.0,
-            description: "Late to practice fine",
-            fineId: "fine1",
-            userId: "user1",
-            seasonId: "season1",
-            teamId: "team1",
-            timeAdded: Date()
-        ))
+        TransactionDetails(transaction: TransactionMock.sampleTransactions[0])
     }
 }

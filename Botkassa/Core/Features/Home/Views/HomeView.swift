@@ -8,39 +8,21 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    @State private var searchText: String = ""
     
-    var filteredUsers: [User] {
-        UsersHelper.filterUsersByName(users: viewModel.teamUsers, filterText: searchText)
-    }
-
     var body: some View {
         NavigationView {
             Group {
                 if let user = viewModel.user {
                     Form {
-                        Section(header: Text("Me")) {
-                            TransactionsSummaryView(
+                        Section(header: Text("Overview")) {
+                            TransactionsSummary(
                                 transactions: viewModel.transactions.filter {
                                     $0.userId == user.id
                                 }
                             )
                         }
-                        
-                        Section(header: Text("Team")) {
-                            if filteredUsers.isEmpty {
-                                Text("No result for '\(searchText)'")
-                                    .foregroundColor(.gray)
-                            } else {
-                                TeamUsersListView(
-                                    teamUsers: filteredUsers,
-                                    transactions: viewModel.transactions
-                                )
-                            }
-                        }
                     }
                     .navigationTitle("Hi, \(user.firstName)")
-                    .searchable(text: $searchText)
                 } else {
                     VStack {
                         Text("Loading user data...")
@@ -51,7 +33,6 @@ struct HomeView: View {
             .onAppear {
                 viewModel.loadUserData()
             }
-           
         }
     }
 }

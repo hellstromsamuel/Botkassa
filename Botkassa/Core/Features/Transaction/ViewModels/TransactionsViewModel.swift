@@ -11,6 +11,13 @@ class TransactionsViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
 
     func loadTransactions() {
-        transactions = MockTransaction.sampleTransactions
+        transactions = TransactionMock.sampleTransactions
+    }
+    
+    func sortedByDateDecending() -> [Transaction] {
+        TransactionsHelper.sortTransactions(
+            direction: .descending,
+            by: \.timeAdded,
+            from: transactions)
     }
 }

@@ -25,8 +25,10 @@ struct ProfileView: View {
                     HStack {
                         Text("Email")
                         Spacer()
-                        Text(viewModel.email)
-                            .foregroundColor(.gray)
+                        if let email = viewModel.email {
+                            Text(email)
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
 

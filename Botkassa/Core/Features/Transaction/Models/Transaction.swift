@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct Transaction: Identifiable, Codable {
+struct Transaction: Identifiable, Codable, Equatable {
     var id: String
-    var type: TransactionType
     var amount: Double
     var description: String
-    var fineId: String?
-    var userId: String
-    var seasonId: String
-    var teamId: String
     var timeAdded: Date
+    var title: String
+    var type: TransactionType
+    var userId: String
 }
